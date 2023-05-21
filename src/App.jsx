@@ -8,12 +8,16 @@ const App = () => {
   const addItem = (itemName) => {
     const newItem = { id: nanoid(), completed: false, name: itemName };
     setItems([...items, newItem])
-    console.log(newItem);
   }
+
+  const removeItem = (itemId) => {
+    let newList = items.filter(item => itemId !== item.id);
+    setItems(newList);
+  };
   return (
     <section className="section-center">
       <Form addItem={addItem} />
-      <Items items={items} />
+      <Items items={items} removeItem={removeItem} />
     </section>)
 
 
