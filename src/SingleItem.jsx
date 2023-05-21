@@ -9,7 +9,7 @@ const SingleItem = ({ item, removeItem }) => {
     return (
         <div className="single-item">
             <input type="checkbox" name="" id="" checked={isChecked} onChange={() => setIsChecked(!isChecked)} />
-            <p style={{ textDecoration: checkboxStyle }}>{item.name}</p>
+            <p style={{ textTransform: "capitalize", textDecoration: checkboxStyle }}>{item.name}</p>
             <button className="btn remove-btn" type="button" onClick={() => removeItem(item.id)}>delete</button>
         </div >
     )
