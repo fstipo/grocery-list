@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 const SingleItem = ({ item, removeItem, editItem }) => {
     const checkboxStyle = item.completed && "line-through";
 

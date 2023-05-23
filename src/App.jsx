@@ -2,6 +2,7 @@ import { useState } from "react";
 import Form from "./Form";
 import { nanoid } from 'nanoid'
 import Items from "./Items";
+import { ToastContainer, toast } from 'react-toastify';
 
 // Get locale storage
 const getLocaleStorage = () => {
@@ -28,12 +29,15 @@ const App = () => {
     const newItems = [...items, newItem]
     setItems(newItems);
     setLocalStorage(newItems);
+    toast.success("item added to the list");
   }
 
   const removeItem = (itemId) => {
     let newItems = items.filter(item => itemId !== item.id);
     setItems(newItems);
     setLocalStorage(newItems);
+    toast.success("item removed from the list");
+
   };
 
   const editItem = (itemId) => {
@@ -55,6 +59,7 @@ const App = () => {
     <section className="section-center">
       <Form addItem={addItem} />
       <Items items={items} removeItem={removeItem} editItem={editItem} />
+      <ToastContainer position="top-center" />
     </section>)
 
 
